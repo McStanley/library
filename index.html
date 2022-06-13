@@ -34,6 +34,18 @@
         <button type="button" class="btn btn-bold" id="btn-add">+ Add Book</button>
         <h2>Your Bookshelf:</h2>
         <div class="books-grid"></div>
+        <form class="book-form">
+            <h2>Add a new book</h2>
+            <input type="text" name="title" id="input-title" placeholder="Title" required>
+            <input type="text" name="author" id="input-author" placeholder="Author" required>
+            <input type="number" name="pages" id="input-pages" placeholder="Pages" required>
+            <div class="checkbox-container">
+                <label for="input-read">Have you read this book?</label>
+                <input type="checkbox" name="read" id="input-read">
+            </div>
+            <button type="button" class="btn" id="btn-submit">Submit</button>
+        </form>
+        <div class="overlay"></div>
     </main>
 </body>
 </html>
