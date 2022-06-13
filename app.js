@@ -7,6 +7,9 @@ const inputRead = document.querySelector('#input-read');
 const btnSubmit = document.querySelector('#btn-submit');
 const booksGrid = document.querySelector('.books-grid');
 const overlay = document.querySelector('.overlay');
+const booksTotal = document.querySelector('#books-total');
+const booksRead = document.querySelector('#books-read');
+const booksUnread = document.querySelector('#books-unread');
 
 let myLibrary = [];
 
@@ -78,6 +81,17 @@ function updateBookshelf() {
 
         booksGrid.appendChild(bookCard);
     }
+    updateStats();
+}
+
+const updateStats = () => {
+    let totalCount = myLibrary.length;
+    let readCount = myLibrary.filter(book => book.read).length;
+    let unreadCount = totalCount - readCount;
+
+    booksTotal.textContent = `Total books: ${totalCount}`;
+    booksRead.textContent = `Books read: ${readCount}`;
+    booksUnread.textContent = `Books unread: ${unreadCount}`;
 }
 
 const submitBook = () => {
