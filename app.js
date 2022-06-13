@@ -39,6 +39,7 @@ const deleteBook = (e) => {
 function updateBookshelf() {
     booksGrid.replaceChildren();
 
+    // add book cards to the books grid
     for (const book of myLibrary) {
         // current book's index in myLibrary
         const index = document.querySelectorAll('.book-card').length;
@@ -82,6 +83,12 @@ function updateBookshelf() {
 
         booksGrid.appendChild(bookCard);
     }
+
+    // display info message when no books are present
+    if (!myLibrary.length) {
+        booksGrid.textContent = 'Add your first book.';
+    }
+
     updateStats();
 }
 
