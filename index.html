@@ -9,6 +9,31 @@
     <script src="./app.js" defer></script>
 </head>
 <body>
-    
+    <aside class="sidebar">
+        <header class="header">
+            <img src="./assets/books.svg" alt="Library logo" class="logo">
+            <h1>Library</h1>
+        </header>
+        <div class="sidebar-content">
+            <section class="stats">
+                <h2>Stats:</h2>
+                <p>Total books: 0</p>
+                <p>Books read: 0</p>
+                <p>Books unread: 0</p>
+            </section>
+            <button type="button" class="btn btn-bold" id="btn-reset">Delete all</button>
+        </div>
+        <footer class="footer">
+            <a href="https://github.com/McStanley" target="_blank">
+                <img src="./assets/GitHub-Mark-32px.png" alt="GitHub logo">
+            </a>
+            <p>Stanisław Olejniczak</p>
+        </footer>
+    </aside>
+    <main class="main">
+        <button type="button" class="btn btn-bold" id="btn-add">+ Add Book</button>
+        <h2>Your Bookshelf:</h2>
+        <div class="books-grid"></div>
+    </main>
 </body>
 </html>
