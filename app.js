@@ -1,4 +1,5 @@
 const btnAdd = document.querySelector('#btn-add');
+const btnReset = document.querySelector('#btn-reset');
 const bookForm = document.querySelector('.book-form');
 const inputTitle = document.querySelector('#input-title');
 const inputAuthor = document.querySelector('#input-author');
@@ -127,7 +128,16 @@ const resetForm = () => {
     inputRead.checked = false;
 }
 
+const clearLibrary = () => {
+    // ask user for confirmation
+    if (confirm('Delete all books?')) {
+        myLibrary = [];
+        updateBookshelf();
+    }
+}
+
 btnAdd.addEventListener('click', toggleForm);
+btnReset.addEventListener('click', clearLibrary);
 btnSubmit.addEventListener('click', submitBook)
 overlay.addEventListener('click', toggleForm);
 
