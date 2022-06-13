@@ -17,6 +17,10 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.toggleRead = function () {
+    this.read = this.read ? false : true;
+}
+
 function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(new Book(title, author, pages, read));
     updateBookshelf();
@@ -32,6 +36,9 @@ function updateBookshelf() {
     booksGrid.replaceChildren();
 
     for (const book of myLibrary) {
+        // current book's index in myLibrary
+        const index = document.querySelectorAll('.book-card').length;
+
         const bookCard = document.createElement('article');
         bookCard.classList.add('book-card');
 
@@ -49,14 +56,13 @@ function updateBookshelf() {
 
         const bookButtons = document.createElement('div');
         bookButtons.classList.add('book-buttons');
-        // current book's index in myLibrary
-        const index = document.querySelectorAll('.book-card').length;
         bookButtons.dataset.libraryIndex = index;
 
         const btnRead = document.createElement('button');
         btnRead.classList.add('btn', 'btn-read');
         btnRead.classList.add(book.read ? 'btn-green' : 'btn-red');
         btnRead.textContent = (book.read ? "Read" : "Not read");
+        btnRead.addEventListener('click', toggleReadHandler);
         bookButtons.appendChild(btnRead);
 
         const btnDelete = document.createElement('button');
@@ -85,6 +91,13 @@ const submitBook = () => {
         return;
     }
     alert('Fill out the form.');
+}
+
+// call toggleRead() method with the right Book object
+const toggleReadHandler = (e) => {
+    const index = e.target.parentNode.dataset.libraryIndex;
+    myLibrary[index].toggleRead();
+    updateBookshelf();
 }
 
 const toggleForm = () => {
