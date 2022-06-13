@@ -22,6 +22,12 @@ function addBookToLibrary(title, author, pages, read) {
     updateBookshelf();
 }
 
+const deleteBook = (e) => {
+    const index = e.target.parentNode.dataset.libraryIndex;
+    myLibrary.splice(index, 1);
+    updateBookshelf();
+}
+
 function updateBookshelf() {
     booksGrid.replaceChildren();
 
@@ -43,6 +49,9 @@ function updateBookshelf() {
 
         const bookButtons = document.createElement('div');
         bookButtons.classList.add('book-buttons');
+        // current book's index in myLibrary
+        const index = document.querySelectorAll('.book-card').length;
+        bookButtons.dataset.libraryIndex = index;
 
         const btnRead = document.createElement('button');
         btnRead.classList.add('btn', 'btn-read');
@@ -53,6 +62,7 @@ function updateBookshelf() {
         const btnDelete = document.createElement('button');
         btnDelete.classList.add('btn', 'btn-delete');
         btnDelete.textContent = "Delete";
+        btnDelete.addEventListener('click', deleteBook);
         bookButtons.appendChild(btnDelete);
 
         bookCard.appendChild(bookTitle);
