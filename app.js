@@ -107,12 +107,19 @@ const submitBook = () => {
     const author = inputAuthor.value;
     const pages = inputPages.value;
     const read = inputRead.checked;
-    if (title && author && pages) {
-        addBookToLibrary(title, author, pages, read);
-        toggleForm();
+
+    // require all input fields to be filled
+    if (!(title && author && pages)) {
+        alert('Fill out the form.');
         return;
     }
-    alert('Fill out the form.');
+    // require book length to be positive
+    if (pages < 1) {
+        alert('Book can not be shorter than 1 page.');
+        return;
+    }
+    addBookToLibrary(title, author, pages, read);
+    toggleForm();
 }
 
 // call toggleRead() method with the right Book object
