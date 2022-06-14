@@ -151,6 +151,6 @@ overlay.addEventListener('click', toggleForm);
 // add sample books
 myLibrary.push(new Book('Rich Dad, Poor Dad', 'Robert T. Kiyosaki', 195, false));
 myLibrary.push(new Book('Be Here Now', 'Ram Dass', 116, true));
-myLibrary.push(new Book('PIKHAL', 'Alexander Shulgin', 978, false));
+myLibrary.push(new Book('PIHKAL', 'Alexander Shulgin', 978, false));
 
 updateBookshelf();
