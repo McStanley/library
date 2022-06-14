@@ -172,3 +172,7 @@ input {
     display: block;
     opacity: 0.5;
 }
+
+.book-card > p {
+    word-break: break-word;
+}
