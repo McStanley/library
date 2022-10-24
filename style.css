@@ -18,6 +18,10 @@ input {
     padding: 15px 10px;
 }
 
+button {
+    cursor: pointer;
+}
+
 .sidebar {
     padding: 20px;
     display: flex;
